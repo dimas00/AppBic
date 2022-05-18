@@ -36,7 +36,7 @@ public class LoginController extends HttpServlet {
              rd = req.getRequestDispatcher("/WEB-INF/home/dasbord.jsp");
 
 
-        }else{
+        }else {
             req.setAttribute("erro", "USUÁRIO OU SENHA INCORRETO");
                   rd = req.getRequestDispatcher("/WEB-INF/login.jsp");
 

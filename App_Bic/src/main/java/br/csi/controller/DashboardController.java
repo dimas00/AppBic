@@ -22,6 +22,8 @@ public class DashboardController extends HttpServlet {
         System.out.println("user-agent" + req.getHeader("user-agent"));
 
       RequestDispatcher rd = null;
+
+
       if(opcao.equals("cliente") ){
 
               rd =  req.getRequestDispatcher("/WEB-INF/home/cliente.jsp");
@@ -29,6 +31,11 @@ public class DashboardController extends HttpServlet {
     }else if (opcao.equals("produto")) {
           rd =  req.getRequestDispatcher("/WEB-INF/home/produto.jsp");
       }
+
+      else if (opcao.equals("sair")){
+          req.getSession().invalidate();
+            rd =  req.getRequestDispatcher("/");
+        }
 
       else{
           rd =  req.getRequestDispatcher("/WEB-INF/home/dasbord.jsp");

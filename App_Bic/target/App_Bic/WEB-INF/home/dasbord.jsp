@@ -20,6 +20,7 @@
 <ul>
     <li>  <a href="controlador?opcao=cliente">  CADASTRAR CLIENTE </a> </li>
     <li>  <a href="controlador?opcao=produto"> CADASTRAR PRODUTO  </a></li>
+    <li>  <a href="controlador?opcao=sair"> SAIR </a></li>
 
 </ul>
 
