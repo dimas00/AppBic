@@ -5,10 +5,7 @@ import br.csi.model.Usuario;
 import br.csi.service.UsuarioService;
 
 import javax.xml.transform.Result;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 
 
 public class UsuarioDao{
@@ -23,19 +20,26 @@ public class UsuarioDao{
 
             try(Connection connection = new ConectaDB().getConexao()){
 
-                this.sql = "SELECT * FROM usuario WHERE email = ?; ";
+                this.sql = "SELECT id_usuario, nome, email, senha  FROM usuario WHERE email = ? ; ";
+                System.out.println(this.sql);
                 preparedStatement = connection.prepareStatement(this.sql);
                 preparedStatement.setString(1, email);
                 resultSet = preparedStatement.executeQuery();
-                System.out.println(getUsuario(String email));
+                System.out.println(email);
                 while (resultSet.next()){
                     usuario = new Usuario();
-                    usuario.setNome(WordUtils.captalize(resulSet.getString("nome").toLowerCase()));
-                    usuario.setEmail(resultSet.get.String("email"));
+                    usuario.setId(resultSet.getInt("id_usuario"));
+                    usuario.setNome(resultSet.getString("nome").toLowerCase());
+                    usuario.setEmail(resultSet.getString("email"));
+                    usuario.setSenha(resultSet.getString("senha"));
 
                 }
 
 
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
             }
 
             return usuario;

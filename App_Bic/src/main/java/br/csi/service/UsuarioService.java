@@ -5,20 +5,25 @@ import br.csi.model.Usuario;
 
 public class UsuarioService {
 
-    private UsuarioDao dao;
+   // private UsuarioDao dao;
 
     public  Usuario autenticado (String email, String senha){
 
 
-                Usuario u = new UsuarioDao().getUsuario(email);
+                Usuario usuario = new UsuarioDao().getUsuario(email);
 
-        if(u.getEmail().equals(email)&&
-                u.getSenha().equals(senha)){
-            return u;
+
+
+        try {
+            if(usuario.getEmail().equals(email)&&
+                    usuario.getSenha().equals(senha)){
+                return usuario;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        else{
-            return null;
-        }
+        return null;
     }
 
 
