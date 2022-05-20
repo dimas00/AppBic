@@ -15,7 +15,7 @@
 
 
 <form action="login" method="post"> <label for="email"> <b>Login<b> </label>
-<input type="text" placeholder="email" name="email" required> <label for="senha"><b>Senha<b></label>
+<input type="text" placeholder="email" name="email" required> <label for="se+++++nha"><b>Senha<b></label>
 <input type="password" placeholder="senha"  name="senha" required>
 <input type="submit" value="Login" name="Login">
 </form>

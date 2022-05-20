@@ -19,8 +19,11 @@
 <form action="login" method="post"> <label for="email"> <b>Login<b> </label>
 <input type="text" placeholder="email" name="email" required> <label for="senha"><b>Senha<b></label>
 <input type="password" placeholder="senha"  name="senha" required>
-<input type="submit" value="Login" name="Login">
+<input type="submit" value="Login" name="Login"> <br>
+
 </form>
+
+<a href="controlador?opcao=cadastro"> Fazer cadastro </a>
 
 <c:if test="${not empty erro}">
 

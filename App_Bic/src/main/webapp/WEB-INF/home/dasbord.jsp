@@ -12,7 +12,7 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Olá ${usuario.nome}</h1>
+<h1>Olá ${usuario_logado.nome}</h1>
 
 <h2>${pageContext.session.id}</h2>
 <h2>${pageContext.session.lastAccessedTime}</h2>

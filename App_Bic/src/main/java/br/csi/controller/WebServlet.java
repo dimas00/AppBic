@@ -13,12 +13,8 @@ public class WebServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher rd=
-                req.getRequestDispatcher("/login.jsp");
+                req.getRequestDispatcher("/WEB-INF/login.jsp");
         rd.forward(req, resp);
     }
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
-    }
 }

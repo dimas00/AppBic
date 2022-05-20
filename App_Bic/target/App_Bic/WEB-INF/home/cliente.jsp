@@ -13,7 +13,7 @@
 <body>
 <h1> Bem vindo cliente ! </h1>
 
-<a href="dasbord.jspcontrolador?opcao=clie"> voltar </a>
+<a href="controlador?opcao=voltar"> SAIR </a>
 
 </body>
 </html>

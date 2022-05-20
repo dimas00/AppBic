@@ -29,13 +29,21 @@ public class DashboardController extends HttpServlet {
               rd =  req.getRequestDispatcher("/WEB-INF/home/cliente.jsp");
 
     }else if (opcao.equals("produto")) {
-          rd =  req.getRequestDispatcher("/WEB-INF/home/produto.jsp");
+          rd =  req.getRequestDispatcher("/WEB-INF/home/produtos.jsp");
       }
 
       else if (opcao.equals("sair")){
           req.getSession().invalidate();
             rd =  req.getRequestDispatcher("/");
         }
+
+      else if(opcao.equals("voltar")){
+          rd =  req.getRequestDispatcher("/WEB-INF/home/dasbord.jsp");
+      }
+
+      else if(opcao.equals("cadastro")){
+          rd =  req.getRequestDispatcher("/WEB-INF/home/cadastro.jsp");
+      }
 
       else{
           rd =  req.getRequestDispatcher("/WEB-INF/home/dasbord.jsp");
