@@ -5,6 +5,8 @@
   Time: 17:12
   To change this template use File | Settings | File Templates.
 --%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -15,7 +17,7 @@
 
 <form action="cadastro" method="post">
 
-    <label for="nome"> <b>Nome<b> </label>
+    <%--@declare id="nome"--%><%--@declare id="email"--%><%--@declare id="senha"--%><label for="nome"> <b>Nome<b> </label>
     <input type="text" placeholder="email" name="nome" required> <br>
     <br>
     <label for="email"> <b>Email<b> </label>

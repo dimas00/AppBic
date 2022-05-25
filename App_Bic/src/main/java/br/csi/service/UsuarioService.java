@@ -25,6 +25,18 @@ public class UsuarioService {
         }
         return null;
     }
+    public boolean CadastrarUsuario(Usuario u){
+
+        String retorno = new UsuarioDao().cadastrar(u);
+
+        if(retorno.equals("ok")){
+
+            return true;
+
+        }else {
+            return false;
+        }
+    }
 
 
 }

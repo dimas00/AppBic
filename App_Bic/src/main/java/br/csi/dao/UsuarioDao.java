@@ -50,8 +50,8 @@ public class UsuarioDao {
 
         try(Connection connection = new ConectaDB().getConexao()){
 
-            this.sql = "INSERT INTO usuario (nome, email, senha, data_cadastro, ativo values)"+
-                    " = values (?, ?, ?, current_date , ?)";
+            this.sql = "INSERT INTO usuario (nome, email, senha, data_cadastro, ativo )"+
+                    "  values (?, ?, ?, current_date , ?)";
 
             this.preparedStatement = connection.prepareStatement(this.sql, preparedStatement.RETURN_GENERATED_KEYS);
             this.preparedStatement.setString(1, usuario.getNome());
@@ -72,7 +72,7 @@ public class UsuarioDao {
                 this.sql = "insert into permissao(id_usuario, id_permissao)" + "= values (?, ?) ";
                 this.preparedStatement = connection.prepareStatement(this.sql);
                 this.preparedStatement.setInt(1, usuario.getId());
-                this.preparedStatement.setInt(2, usuario.getPermissao().getId());
+                this.preparedStatement.setInt(2,2);
                 this.status = "ok";
             }
 
