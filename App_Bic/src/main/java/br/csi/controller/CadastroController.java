@@ -11,8 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-@WebServlet("login")
-public class LoginController extends HttpServlet {
+
+@WebServlet("cadastro")
+public class CadastroController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -23,26 +24,17 @@ public class LoginController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String senha = req.getParameter("senha");
         String email = req.getParameter("email");
+        String nome = req.getParameter("nome");
 
-        //System.out.println("email: " + email+ "" +"senha: "+senha );
+        System.out.println("email: " + email+ "" +"senha: "+senha );
 
-        RequestDispatcher rd;
+        Usuario u = new Usuario();
 
-        Usuario usuario = new UsuarioService().autenticado(email, senha);
+        u.setNome(nome);
+        u.setEmail(email);
+        u.setSenha(senha);
 
-        if(usuario != null){
-            HttpSession sessao = req.getSession();
-            sessao.setAttribute("usuario_logado", usuario);
-             rd = req.getRequestDispatcher("/WEB-INF/home/dasbord.jsp");
-
-
-        }else {
-            req.setAttribute("erro", "USUÁRIO OU SENHA INCORRETO");
-                  rd = req.getRequestDispatcher("/WEB-INF/login.jsp");
-
-        }
-        rd.forward(req, resp);
-
+        new UsuarioService().CadastrarUsuario(u);
 
 
     }
