@@ -26,7 +26,7 @@ public class CadastroController extends HttpServlet {
         String email = req.getParameter("email");
         String nome = req.getParameter("nome");
 
-        System.out.println("email: " + email+ "" +"senha: "+senha );
+        RequestDispatcher rd;
 
         Usuario u = new Usuario();
 
@@ -35,6 +35,11 @@ public class CadastroController extends HttpServlet {
         u.setSenha(senha);
 
         new UsuarioService().CadastrarUsuario(u);
+
+
+            rd = req.getRequestDispatcher("/WEB-INF/home/login.jsp");
+             rd.forward(req, resp);
+
 
 
     }

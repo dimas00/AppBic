@@ -17,7 +17,7 @@
 
 <form action="cadastro" method="post">
 
-    <label for="nome"> <b>Nome<b> </label>
+    <%--@declare id="nome"--%><%--@declare id="email"--%><%--@declare id="senha"--%><label for="nome"> <b>Nome<b> </label>
     <input type="text" placeholder="email" name="nome" required> <br>
     <br>
     <label for="email"> <b>Email<b> </label>
