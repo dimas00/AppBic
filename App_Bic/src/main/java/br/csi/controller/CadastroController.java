@@ -34,12 +34,18 @@ public class CadastroController extends HttpServlet {
         u.setEmail(email);
         u.setSenha(senha);
 
-        new UsuarioService().CadastrarUsuario(u);
-
+        if(new UsuarioService().CadastrarUsuario(u)) {
 
             rd = req.getRequestDispatcher("/WEB-INF/home/login.jsp");
-             rd.forward(req, resp);
+            rd.forward(req, resp);
 
+        }else {
+
+
+            req.setAttribute("erro", "Erro no cadastro");
+            rd = req.getRequestDispatcher("/WEB-INF/home/cadastro.jsp");
+        }
+            rd.forward(req, resp);
 
 
     }

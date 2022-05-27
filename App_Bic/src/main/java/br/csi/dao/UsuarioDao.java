@@ -69,7 +69,7 @@ public class UsuarioDao {
             }
 
             if(this.status. equals("ok")){
-                this.sql = "insert into permissao(id_usuario, id_permissao)" + "= values (?, ?) ";
+                this.sql = "insert into permissao(id_usuario, id_permissao) values (?, ?); ";
                 this.preparedStatement = connection.prepareStatement(this.sql);
                 this.preparedStatement.setInt(1, usuario.getId());
                 this.preparedStatement.setInt(2,2);

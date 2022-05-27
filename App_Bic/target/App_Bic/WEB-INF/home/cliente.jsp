@@ -13,7 +13,7 @@
 <body>
 <h1> Bem vindo cliente ! </h1>
 
-<a href="controlador?opcao=voltar"> SAIR </a>
+<a href="controlador?opcao=voltar"> VOLTAR </a>
 
 </body>
 </html>
