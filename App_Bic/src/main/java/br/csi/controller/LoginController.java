@@ -38,7 +38,7 @@ public class LoginController extends HttpServlet {
 
         }else {
             req.setAttribute("erro", "USUÁRIO OU SENHA INCORRETO");
-                  rd = req.getRequestDispatcher("/WEB-INF/cadastro.jsp");
+                  rd = req.getRequestDispatcher("/WEB-INF/home/login.jsp");
 
         }
         rd.forward(req, resp);

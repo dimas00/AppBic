@@ -31,8 +31,17 @@
 
 
 
-    <input type="submit" value="Login" name="Cadastrar"> <br>
+    <input type="submit" value="Cadastrar" name="Cadastrar"> <br>
 
 </form>
+
+<c:if test="${not empty erro}">
+
+    <h6>
+        <h1>${erro}</h1>
+    </h6>
+
+</c:if>
+
 </body>
 </html>
