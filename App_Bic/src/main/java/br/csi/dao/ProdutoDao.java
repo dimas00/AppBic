@@ -2,10 +2,8 @@ package br.csi.dao;
 
 import br.csi.model.Produto;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 
 
 public class ProdutoDao {
@@ -44,6 +42,38 @@ public class ProdutoDao {
 
         return produto;
     }
+
+
+    public ArrayList<Produto> getProdutos(){
+
+        ArrayList<Produto> produtos = new ArrayList<>();
+        try (Connection connection = new ConectaDB().getConexao()) {
+
+
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from produtos");
+
+
+            while (resultSet.next()){
+                Produto produto = new Produto();
+                produto.setNome(resultSet.getString("nome"));
+                produto.setPreco(resultSet.getFloat("preco"));
+                produto.setQuantidade(resultSet.getInt("quantidade"));
+                produto.setId((resultSet.getInt("id_produto")));
+                produtos.add(produto);
+                System.out.println(resultSet.getString("nome"));
+
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return produtos;
+    }
+
 
     public boolean Cadastrar(Produto produto) {
 

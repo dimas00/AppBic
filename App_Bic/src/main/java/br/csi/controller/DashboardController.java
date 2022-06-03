@@ -45,6 +45,10 @@ public class DashboardController extends HttpServlet {
           rd =  req.getRequestDispatcher("/WEB-INF/home/cadastro.jsp");
       }
 
+      else if(opcao.equals("login")){
+          rd =  req.getRequestDispatcher("/WEB-INF/home/login.jsp");
+      }
+
       else{
           rd =  req.getRequestDispatcher("/WEB-INF/home/dasbord.jsp");
       }

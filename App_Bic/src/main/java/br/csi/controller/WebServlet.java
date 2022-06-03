@@ -13,7 +13,7 @@ public class WebServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher rd=
-                req.getRequestDispatcher("/WEB-INF/home/login.jsp");
+                req.getRequestDispatcher("listarProdutos");
         rd.forward(req, resp);
     }
 
