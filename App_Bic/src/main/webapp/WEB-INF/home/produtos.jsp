@@ -23,40 +23,51 @@
 </head>
 <body>
 
+<div class="album py-5 bg-light">
+    <div class="container">
 
-<h1>Cadastro de produtos </h1>
+<div class="card">
+    <h5 class="card-header">Cadastro de Produtos </h5>
+    <div class="card-body">
+       <form action="cadastro_produto" method="post">
 
-<form action="cadastro_produto" method="post">
+        <%--@declare id="nome"--%><%--@declare id="email"--%><%--@declare id="senha"--%><%--@declare id="preco"--%>
+        <%--@declare id="quantidade"--%>
 
-    <%--@declare id="nome"--%><%--@declare id="email"--%><%--@declare id="senha"--%><%--@declare id="preco"--%>
-    <%--@declare id="quantidade"--%>
+        <label for="nome"> <b>Nome<b> </label>
+        <input type="text" placeholder="email" name="nome" required> <br>
+        <br>
 
-    <label for="nome"> <b>Nome<b> </label>
-    <input type="text" placeholder="email" name="nome" required> <br>
-    <br>
+        <label for="preco"> <b>Preço<b> </label>
+        <input type="number" placeholder="preco" name="preco" required><br>
 
-    <label for="preco"> <b>Preço<b> </label>
-    <input type="number" placeholder="preco" name="preco" required><br>
+        <br>
 
-    <br>
-
-    <label for="quantidade"> <b>Quantidade<b> </label>
-    <input type="number" placeholder="quantidade"  name="quantidade" required><br>
-    <br>
+        <label for="quantidade"> <b>Quantidade<b> </label>
+        <input type="number" placeholder="quantidade"  name="quantidade" required><br>
+        <br>
 
 
 
-    <input type="submit" value="Cadastrar" name="Cadastrar"> <br>
+        <input type="submit" value="Cadastrar" name="Cadastrar" class="btn btn-primary" >
 
-</form>
-<c:if test="${not empty retorno}">
-<div class="alert alert-success" role="alert">
-        ${retorno}
+    </form>
+        <c:if test="${not empty retorno}">
+            <div class="alert alert-success" role="alert">
+                    ${retorno}
+            </div>
+        </c:if>
+
+
+        <a href="controlador?opcao=voltar" class="btn btn-secondary"  > VOLTAR </a>
+
+    </div>
 </div>
-</c:if>
+    </div>
+        </div>
 
 
-<a href="controlador?opcao=voltar"> VOLTAR </a>
+
 
 
 <div class="album py-5 bg-light">
@@ -68,7 +79,10 @@
                 <div class="col">
 
                     <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">${produto.preco}</text></svg>
+                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                            <title>
+
+                            </title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">${produto.preco}</text></svg>
 
                         <div class="card-body">
                             <p class="card-text"> ${produto.nome}    </p>
