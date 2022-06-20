@@ -33,7 +33,7 @@ public class LoginController extends HttpServlet {
         if(usuario != null){
             HttpSession sessao = req.getSession();
             sessao.setAttribute("usuario_logado", usuario);
-             rd = req.getRequestDispatcher("/WEB-INF/home/dasbord.jsp");
+             rd = req.getRequestDispatcher("controlador?opcao=voltar");
 
 
         }else {

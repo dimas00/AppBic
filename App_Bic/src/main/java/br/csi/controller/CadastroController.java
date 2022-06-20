@@ -35,7 +35,7 @@ public class CadastroController extends HttpServlet {
         u.setSenha(senha);
 
         if(new UsuarioService().CadastrarUsuario(u)) {
-
+            req.setAttribute("msg", "Cadastro realizado com sucesso");
             rd = req.getRequestDispatcher("/WEB-INF/home/login.jsp");
             rd.forward(req, resp);
 

@@ -19,12 +19,18 @@ public class ListarProdutos extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        System.out.println("ola");
+
         ProdutoDao produtoDao = new ProdutoDao();
+
         ArrayList<Produto> produtos = produtoDao.getProdutos();
+
         System.out.println("qtd de prodtuso: "+produtos.size());
+
         req.setAttribute("produtos", produtos);
-        RequestDispatcher rd = req.getRequestDispatcher("produtos.jsp");
+
+        RequestDispatcher rd = req.getRequestDispatcher("VisualizarProduto.jsp");
+
+
         System.out.println();
         rd.forward(req,resp);
 

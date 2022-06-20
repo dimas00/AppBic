@@ -75,6 +75,41 @@ public class ProdutoDao {
     }
 
 
+    public Produto getProduto1(int id){
+
+        Produto produto = new Produto();
+        try (Connection connection = new ConectaDB().getConexao()) {
+
+
+
+            this.sql = "select * from produtos where id_produto = ?";
+            this.preparedStatement = connection.prepareStatement(this.sql);
+            this.preparedStatement.setInt(1, id);
+
+            this.resultSet = this.preparedStatement.executeQuery();
+
+
+
+            while (resultSet.next()){
+
+                produto.setNome(resultSet.getString("nome"));
+                produto.setPreco(resultSet.getFloat("preco"));
+                produto.setQuantidade(resultSet.getInt("quantidade"));
+                produto.setId((resultSet.getInt("id_produto")));
+                System.out.println(resultSet.getString("nome"));
+
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return produto;
+    }
+
+
     public boolean Cadastrar(Produto produto) {
 
 
@@ -116,5 +151,74 @@ public class ProdutoDao {
 
         return false;
     }
+
+    public boolean Editar (Produto produto) {
+
+
+
+        try(Connection connection = new ConectaDB().getConexao()){
+
+            this.sql = "update produtos set nome = ? , preco = ? , quantidade = ? where id_produto = ?";
+
+            this.preparedStatement = connection.prepareStatement(this.sql);
+            this.preparedStatement.setString(1, produto.getNome());
+            this.preparedStatement.setFloat(2, produto.getPreco());
+            this.preparedStatement.setInt(3, produto.getQuantidade());
+            this.preparedStatement.setInt(4, produto.getId());
+
+
+            this.preparedStatement.executeUpdate();
+
+
+            if(this.preparedStatement.getUpdateCount() > 0){
+
+                this.status = "ok";
+                return true;
+            }
+
+
+        }catch (SQLException | ClassNotFoundException e){
+            e.printStackTrace();
+            this.status = "erro";
+            return false;
+        }
+
+        return false;
+    }
+
+    public boolean Excluir (Produto produto) {
+
+
+
+        try(Connection connection = new ConectaDB().getConexao()){
+
+            this.sql = "delete from produtos where id_produto = ?";
+
+            this.preparedStatement = connection.prepareStatement(this.sql);
+
+            this.preparedStatement.setInt(1, produto.getId());
+
+
+            this.preparedStatement.execute();
+
+
+            if(this.preparedStatement.getUpdateCount() > 0){
+
+                this.status = "ok";
+                return true;
+            }
+
+
+        }catch (SQLException | ClassNotFoundException e){
+            e.printStackTrace();
+            this.status = "erro";
+            return false;
+        }
+
+        return false;
+    }
+
+
+
 }
 
