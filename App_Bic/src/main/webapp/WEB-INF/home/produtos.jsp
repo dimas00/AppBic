@@ -47,9 +47,14 @@
         <input type="number" placeholder="quantidade"  name="quantidade" required><br>
         <br>
 
+            <label for="quantidade"> <b>Descrição<b> </label>
+            <input type="text" placeholder="descricao"  name="descricao" required><br>
+            <br>
 
 
         <input type="submit" value="Cadastrar" name="Cadastrar" class="btn btn-primary" >
+            <a href="controlador?opcao=voltar" class="btn btn-secondary"  > VOLTAR </a>
+
 
     </form>
         <c:if test="${not empty retorno}">
@@ -59,7 +64,7 @@
         </c:if>
 
 
-        <a href="controlador?opcao=voltar" class="btn btn-secondary"  > VOLTAR </a>
+
 
     </div>
 </div>
@@ -86,7 +91,7 @@
 
                         <div class="card-body">
                             <p class="card-text"> ${produto.nome}    </p>
-                            <p> <small class="text-muted">Aqui esta a descrição do produto que eu ainda não implementei </small> </p>
+                            <p> <small class="text-muted"> ${produto.descricao} </small> </p>
                             <div class="d-flex justify-content-between align-items-center">
 
 

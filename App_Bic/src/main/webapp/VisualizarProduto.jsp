@@ -9,14 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
 
-
-    <title>Produtos</title>
-
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-
-
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/navbars-offcanvas/">
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Produtos</title>
 
     <style>
         .bd-placeholder-img {
@@ -141,15 +140,17 @@
     <div class="col">
 
                     <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                         <rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"> R$: ${produto.preco}</text></svg>
+
+                        <img src="https://images.tcdn.com.br/img/img_prod/693228/kit_10_piteira_de_vidro_one_5_mm_longa_4041_1_c0a28b485675180009cd120395a11e0f.jpg">
+
 
                         <div class="card-body">
-                            <p class="card-text"> ${produto.nome} </p>
+                            <p class="card-text"> ${produto.nome} - R$${produto.preco}0 </p>
+                            <p> <small class="text-muted">${produto.descricao} </small> </p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Comprar</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Adicionar ao Carrinho </button>
+                                    <button type="button" class="btn btn-success">Comprar</button>
+                                    <button type="button" class="btn btn-info"  >Adicionar ao Carrinho </button>
                                 </div>
                                 <small class="text-muted">9 mins</small>
                             </div>

@@ -28,6 +28,7 @@ public class CadastroProdutoController extends HttpServlet {
         int quantidade = Integer.parseInt(req.getParameter("quantidade"));
         Float preco = Float.valueOf(req.getParameter("preco"));
         String img = req.getParameter("img");
+        String descricao = req.getParameter("descricao");
 
 
         RequestDispatcher rd;
@@ -37,6 +38,7 @@ public class CadastroProdutoController extends HttpServlet {
         produto.setNome(nome);
         produto.setQuantidade(quantidade);
         produto.setPreco(preco);
+        produto.setDescricao(descricao);
 
         if(new ProdutoDao().Cadastrar(produto)) {
             System.out.println("cadastrou");

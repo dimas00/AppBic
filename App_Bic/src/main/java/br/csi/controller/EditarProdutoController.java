@@ -38,6 +38,7 @@ public class EditarProdutoController extends HttpServlet {
         String nome = req.getParameter("nome");
         int quantidade = Integer.parseInt(req.getParameter("quantidade"));
         Float preco = Float.valueOf(req.getParameter("preco"));
+        String descricao = req.getParameter("descricao");
 
        // String img = req.getParameter("img");
 
@@ -49,6 +50,7 @@ public class EditarProdutoController extends HttpServlet {
         produto.setNome(nome);
         produto.setQuantidade(quantidade);
         produto.setPreco(preco);
+        produto.setDescricao(descricao);
         produto.setId(id);
 
 

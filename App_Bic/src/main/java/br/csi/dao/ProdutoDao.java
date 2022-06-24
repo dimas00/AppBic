@@ -20,7 +20,7 @@ public class ProdutoDao {
 
         try (Connection connection = new ConectaDB().getConexao()) {
 
-            this.sql = "SELECT id_produto, nome, quantidade, preco  FROM usuario WHERE id_produto = ? ; ";
+            this.sql = "SELECT id_produto, nome, quantidade, preco, descricao  FROM usuario WHERE id_produto = ? ; ";
             System.out.println(this.sql);
             preparedStatement = connection.prepareStatement(this.sql);
             preparedStatement.setString(1, id_produto);
@@ -60,6 +60,7 @@ public class ProdutoDao {
                 produto.setPreco(resultSet.getFloat("preco"));
                 produto.setQuantidade(resultSet.getInt("quantidade"));
                 produto.setId((resultSet.getInt("id_produto")));
+                produto.setDescricao(resultSet.getString("descricao"));
                 produtos.add(produto);
                 System.out.println(resultSet.getString("nome"));
 
@@ -96,6 +97,10 @@ public class ProdutoDao {
                 produto.setPreco(resultSet.getFloat("preco"));
                 produto.setQuantidade(resultSet.getInt("quantidade"));
                 produto.setId((resultSet.getInt("id_produto")));
+                produto.setDescricao((resultSet.getString("descricao")));
+
+
+
                 System.out.println(resultSet.getString("nome"));
 
             }
@@ -116,13 +121,14 @@ public class ProdutoDao {
 
         try(Connection connection = new ConectaDB().getConexao()){
 
-            this.sql = "INSERT INTO produtos (nome, preco, quantidade )"+
-                    "  values (?, ?, ?)";
+            this.sql = "INSERT INTO produtos (nome, preco, quantidade, descricao )"+
+                    "  values (?, ?, ?,?)";
 
             this.preparedStatement = connection.prepareStatement(this.sql, preparedStatement.RETURN_GENERATED_KEYS);
             this.preparedStatement.setString(1, produto.getNome());
             this.preparedStatement.setFloat(2, produto.getPreco());
             this.preparedStatement.setInt(3, produto.getQuantidade());
+            this.preparedStatement.setString(4, produto.getDescricao());
 
 
             this.preparedStatement.execute();
@@ -158,13 +164,14 @@ public class ProdutoDao {
 
         try(Connection connection = new ConectaDB().getConexao()){
 
-            this.sql = "update produtos set nome = ? , preco = ? , quantidade = ? where id_produto = ?";
+            this.sql = "update produtos set nome = ? , preco = ? , quantidade = ?, descricao = ? where id_produto = ?";
 
             this.preparedStatement = connection.prepareStatement(this.sql);
             this.preparedStatement.setString(1, produto.getNome());
             this.preparedStatement.setFloat(2, produto.getPreco());
             this.preparedStatement.setInt(3, produto.getQuantidade());
-            this.preparedStatement.setInt(4, produto.getId());
+            this.preparedStatement.setString(4, produto.getDescricao());
+            this.preparedStatement.setInt(5, produto.getId());
 
 
             this.preparedStatement.executeUpdate();
