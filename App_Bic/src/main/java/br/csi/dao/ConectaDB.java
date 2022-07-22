@@ -9,7 +9,7 @@ public class ConectaDB {
     private static final String DRIVER  = "org.postgresql.Driver";
     private static final String URL = "jdbc:postgresql://localhost:5432/AppBic";
     private static final String USER = "postgres";
-    private static final String SENHA = "1234";
+    private static final String SENHA = "123456";
 
     public  static  void main(String args[]) throws ClassNotFoundException {
         new ConectaDB().getConexao();

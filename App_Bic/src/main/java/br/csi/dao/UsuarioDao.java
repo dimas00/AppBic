@@ -32,6 +32,7 @@ public class UsuarioDao {
                 usuario.setEmail(resultSet.getString("email"));
                 usuario.setSenha(resultSet.getString("senha"));
 
+
             }
 
 
@@ -50,8 +51,8 @@ public class UsuarioDao {
 
         try(Connection connection = new ConectaDB().getConexao()){
 
-            this.sql = "INSERT INTO usuario (nome, email, senha, data_cadastro, ativo )"+
-                    "  values (?, ?, ?, current_date , ?)";
+            this.sql = "INSERT INTO usuario (nome, email, senha, data_cadastro, ativo, id_permissao )"+
+                    "  values (?, ?, ?, current_date , ?, 2)";
 
             this.preparedStatement = connection.prepareStatement(this.sql, preparedStatement.RETURN_GENERATED_KEYS);
             this.preparedStatement.setString(1, usuario.getNome());

@@ -79,10 +79,5 @@ public class ExcluirProdutoController extends HttpServlet {
             rd.forward(req, resp);
         }
 
-
-
-
-
-
     }
 }
